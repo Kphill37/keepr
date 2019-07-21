@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using keepr.Models;
 using keepr.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace keepr.Controllers
@@ -39,6 +40,22 @@ namespace keepr.Controllers
       try
       {
         return Ok(_repo.GetById(id));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e);
+      }
+    }
+
+    // GET api/keeps/user
+    [Authorize]
+    [HttpGet("{userid}")]
+
+    public ActionResult<Keep> GetKeepsFromCurrentUser(string userid)
+    {
+      try
+      {
+        return Ok(_repo.GetKeepsFromCurrentUser(userid));
       }
       catch (Exception e)
       {

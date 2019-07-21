@@ -27,36 +27,48 @@ namespace keepr.Repositories
       return newKeep;
     }
 
-    public Keep Create(Keep value)
+    public IEnumerable<Keep> GetKeepsFromCurrentUser(string userid)
+    {
+      string query = @"SELECT * FROM keeps where userid = @userid";
+      return _db.Query<Keep>(query, new { userid });
+    }
+    public Keep Create(Keep value) //NOTE, variable names may have to be capitalized in the Keep.cs model
     {
       string query = @"
-            INSERT INTO keeps (name, price)
-                    VALUES (@Name, @Price);
+            INSERT INTO keeps (name, description, userId, img, isPrivate, views, shares, keeps)
+                    VALUES (@name, @description, @userid, @img, @isPrivate, @views, @shares, @keeps);
                     SELECT LAST_INSERT_ID();
             ";
       int id = _db.ExecuteScalar<int>(query, value);
-      value.Id = id;
+      value.id = id;
       return value;
     }
 
-    public Flower Update(Flower value)
+
+    public Keep Update(Keep value)
     {
       string query = @"
-            UPDATE flowers
+            UPDATE keeps
             SET
-                name = @Name,
-                price = @Price
-            WHERE id = @Id;            
-            SELECT * FROM flowers WHERE id = @Id";
-      return _db.QueryFirstOrDefault<Flower>(query, value);
+                name = @name,
+                description = @description,
+                userId = @userid,
+                img = @img,
+                isPrivate = @isPrivate,
+                views = @views,
+                shares = @shares,
+                keeps = @keeps
+            WHERE id = @id;            
+            SELECT * FROM keeps WHERE id = @id";
+      return _db.QueryFirstOrDefault<Keep>(query, value);
     }
 
     public string Delete(int id)
     {
-      string query = "DELETE FROM flowers WHERE id = @Id";
+      string query = "DELETE FROM keeps WHERE id = @id";
       int changedRows = _db.Execute(query, new { id });
       if (changedRows < 1) throw new Exception("Invalid Id");
-      return "Successfully deleted Flower";
+      return "Successfully deleted Keep";
 
     }
   }
