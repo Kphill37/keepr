@@ -69,11 +69,13 @@ namespace keepr.Controllers
     }
 
     // POST api/keeps
+    [Authorize]
     [HttpPost]
     public ActionResult<Keep> Post([FromBody] Keep value)
     {
       try
       {
+        var id = HttpContext.User.FindFirstValue("Id");
         return Ok(_repo.Create(value));
       }
       catch (Exception e)
