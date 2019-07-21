@@ -76,6 +76,7 @@ namespace keepr.Controllers
       try
       {
         var id = HttpContext.User.FindFirstValue("Id");
+        value.userid = id;
         return Ok(_repo.Create(value));
       }
       catch (Exception e)
@@ -85,6 +86,7 @@ namespace keepr.Controllers
     }
 
     // PUT api/keeps/5
+    [Authorize]
     [HttpPut("{id}")]
     public ActionResult<Keep> Put(int id, [FromBody] Keep value)
     {
