@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using keepr.Models;
 using keepr.Repositories;
@@ -14,10 +15,13 @@ namespace keepr.Controllers
   public class KeepsController : ControllerBase
   {
     private readonly KeepRepository _repo;
+
+
     public KeepsController(KeepRepository repo)
     {
       _repo = repo;
     }
+
 
     // GET api/keeps
     [HttpGet]
@@ -49,13 +53,14 @@ namespace keepr.Controllers
 
     // GET api/keeps/user
     [Authorize]
-    [HttpGet("{userid}")]
-
-    public ActionResult<Keep> GetKeepsFromCurrentUser(string userid)
+    [HttpGet("user")]
+    public ActionResult<IEnumerable<Keep>> GetKeepsFromCurrentUser()
     {
       try
       {
-        return Ok(_repo.GetKeepsFromCurrentUser(userid));
+        var id = HttpContext.User.FindFirstValue("Id");
+
+        return Ok(_repo.GetKeepsFromCurrentUser(id));
       }
       catch (Exception e)
       {

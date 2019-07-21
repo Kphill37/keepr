@@ -21,16 +21,16 @@ namespace keepr.Repositories
 
     public Keep GetById(int id)
     {
-      string query = "SELECT * FROM keeps WHERE id = @id";
-      Keep newKeep = _db.QueryFirstOrDefault<Keep>(query, new { id });
-      if (newKeep == null) throw new Exception("Invalid Id");
-      return newKeep;
+      string query = @"SELECT * FROM keeps WHERE id = @id";
+      Keep keep = _db.QueryFirstOrDefault<Keep>(query, new { id });
+      if (keep == null) throw new Exception("Invalid Id");
+      return keep;
     }
 
-    public IEnumerable<Keep> GetKeepsFromCurrentUser(string userid)
+    public IEnumerable<Keep> GetKeepsFromCurrentUser(string id)
     {
-      string query = @"SELECT * FROM keeps where userid = @userid";
-      return _db.Query<Keep>(query, new { userid });
+      string query = @"SELECT * FROM keeps WHERE userid = @id";
+      return _db.Query<Keep>(query, new { id });
     }
     public Keep Create(Keep value) //NOTE, variable names may have to be capitalized in the Keep.cs model
     {
