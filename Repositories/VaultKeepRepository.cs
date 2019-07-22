@@ -14,12 +14,12 @@ namespace keepr.Repositories
       _db = db;
     }
 
-    public IEnumerable<Keep> GetALL(string userid)
+    public IEnumerable<Keep> GetALL(string userid, int vaultId)
     {
       string query = @"SELECT * FROM vaultkeeps vk
                         INNER JOIN keeps k on k.id = vk.keepId
-                        WHERE(vaultId = @vaultId AND vk.userId = @userid";
-      return _db.Query<Keep>(query);
+                        WHERE(vaultId = @vaultId AND vk.userId = @userid)";
+      return _db.Query<Keep>(query, new { userid, vaultId });
     }
 
     public Vault GetById(int id, string userid)
@@ -43,13 +43,14 @@ namespace keepr.Repositories
     //   string query = @"SELECT * FROM vaults WHERE userid = @id";
     //   return _db.Query<Vault>(query, new { id });
     // }
-    public VaultKeep Create(VaultKeep value) //NOTE, variable names may have to be capitalized in the Keep.cs model
+    public VaultKeep Create(VaultKeep value, string userid) //NOTE, variable names may have to be capitalized in the Keep.cs model
     {
       string query = @"
             INSERT INTO vaultkeeps (vaultId, keepId, userId)
-                    VALUES (@vaultId, @keepId, @userId);
+                    VALUES (@vaultId, @keepId, @userid);
                     SELECT LAST_INSERT_ID();
             ";
+      value.userId = userid;
       int id = _db.ExecuteScalar<int>(query, value);
       value.id = id;
       return value;

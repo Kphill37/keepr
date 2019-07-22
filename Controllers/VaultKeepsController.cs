@@ -26,12 +26,12 @@ namespace keepr.Controllers
     // GET api/vaults
     [Authorize]
     [HttpGet("{id}")]
-    public ActionResult<IEnumerable<Keep>> Get()
+    public ActionResult<IEnumerable<Keep>> Get(int id)
     {
       try
       {
         var userid = HttpContext.User.FindFirstValue("Id");
-        return Ok(_repo.GetALL(userid));
+        return Ok(_repo.GetALL(userid, id));
       }
       catch (Exception e)
       {
@@ -73,15 +73,13 @@ namespace keepr.Controllers
     // }
 
     // POST api/keeps
-    [Authorize]
     [HttpPost]
     public ActionResult<VaultKeep> Post([FromBody] VaultKeep value)
     {
       try
       {
         var id = HttpContext.User.FindFirstValue("Id");
-        value.userId = id;
-        return Ok(_repo.Create(value));
+        return Ok(_repo.Create(value, id));
       }
       catch (Exception e)
       {

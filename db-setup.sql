@@ -1,4 +1,4 @@
-USE mykeepr00;
+-- USE mykeepr00;
 
 -- CREATE TABLE users (
 --     id VARCHAR(255) NOT NULL,
