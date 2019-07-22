@@ -46,7 +46,8 @@ namespace keepr.Controllers
     {
       try
       {
-        return Ok(_repo.GetById(id));
+        var userid = HttpContext.User.FindFirstValue("Id");
+        return Ok(_repo.GetById(id, userid));
       }
       catch (Exception e)
       {

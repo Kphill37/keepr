@@ -20,7 +20,7 @@ namespace keepr.Repositories
       return _db.Query<Vault>(query, new { userid });
     }
 
-    public Vault GetById(int id)
+    public Vault GetById(int id, string userid)
     {
       string query = @"SELECT * FROM vaults WHERE id = @id";
       Vault vault = _db.QueryFirstOrDefault<Vault>(query, new { id });

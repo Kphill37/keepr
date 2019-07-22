@@ -66,7 +66,6 @@ namespace keepr.Repositories
       int changedRows = _db.Execute(query, new { id });
       if (changedRows < 1) throw new Exception("Invalid Id");
       return "Successfully deleted Keep";
-
     }
   }
 }
