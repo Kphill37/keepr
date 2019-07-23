@@ -30,19 +30,6 @@ namespace keepr.Repositories
       return vault;
     }
 
-    // public Keep GetById(int id)
-    // {
-    //   string query = @"SELECT * FROM keeps WHERE id = @id";
-    //   Keep keep = _db.QueryFirstOrDefault<Keep>(query, new { id });
-    //   if (keep == null) throw new Exception("Invalid Id");
-    //   return keep;
-    // }
-
-    // public IEnumerable<Vault> GetVaultsFromCurrentUser(string id)
-    // {
-    //   string query = @"SELECT * FROM vaults WHERE userid = @id";
-    //   return _db.Query<Vault>(query, new { id });
-    // }
     public VaultKeep Create(VaultKeep value, string userid) //NOTE, variable names may have to be capitalized in the Keep.cs model
     {
       string query = @"
@@ -72,10 +59,11 @@ namespace keepr.Repositories
       return _db.QueryFirstOrDefault<Keep>(query, value);
     }
 
-    public string Delete(int id)
+    public string DeleteVault(VaultKeep value)
     {
-      string query = "DELETE FROM vaults WHERE id = @id";
-      int changedRows = _db.Execute(query, new { id });
+      string query = @"
+                        DELETE FROM vaultkeeps WHERE id = @id AND vaultId = @vaultId AND userId = @userId";
+      int changedRows = _db.Execute(query, new { value.id, value.vaultId, value.userId });
       if (changedRows < 1) throw new Exception("Invalid Id");
       return "Successfully deleted Vault";
 

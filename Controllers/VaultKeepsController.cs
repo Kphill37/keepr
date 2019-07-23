@@ -23,7 +23,7 @@ namespace keepr.Controllers
     }
 
 
-    // GET api/vaults
+    // GET api/vaultkeeps/:vaultId
     [Authorize]
     [HttpGet("{id}")]
     public ActionResult<IEnumerable<Keep>> Get(int id)
@@ -38,39 +38,6 @@ namespace keepr.Controllers
         return BadRequest(e);
       }
     }
-
-    // GET api/vaults/5
-    // [Authorize]
-    // [HttpGet("{id}")]
-    // public ActionResult<Vault> Get(int id)
-    // {
-    //   try
-    //   {
-    //     var userid = HttpContext.User.FindFirstValue("Id");
-    //     return Ok(_repo.GetById(id, userid));
-    //   }
-    //   catch (Exception e)
-    //   {
-    //     return BadRequest(e);
-    //   }
-    // }
-
-    // GET api/keeps/user
-    // [Authorize]
-    // [HttpGet]
-    // public ActionResult<IEnumerable<Vault>> GetVaultsFromCurrentUser()
-    // {
-    //   try
-    //   {
-    //     var id = HttpContext.User.FindFirstValue("Id");
-
-    //     return Ok(_repo.GetVaultsFromCurrentUser(id));
-    //   }
-    //   catch (Exception e)
-    //   {
-    //     return BadRequest(e);
-    //   }
-    // }
 
     // POST api/keeps
     [HttpPost]
@@ -104,12 +71,13 @@ namespace keepr.Controllers
     }
 
     // DELETE api/keeps/5
-    [HttpDelete("{id}")]
-    public ActionResult<String> Delete(int id)
+    [Authorize]
+    [HttpPut]
+    public ActionResult<VaultKeep> DeleteVault([FromBody] VaultKeep value)
     {
       try
       {
-        return Ok(_repo.Delete(id));
+        return Ok(_repo.DeleteVault(value));
       }
       catch (Exception e)
       {
