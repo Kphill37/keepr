@@ -73,11 +73,14 @@ namespace keepr.Controllers
     // DELETE api/keeps/5
     [Authorize]
     [HttpPut]
-    public ActionResult<VaultKeep> DeleteVault([FromBody] VaultKeep value)
+    public ActionResult<String> DeleteVaultKeep([FromBody] VaultKeep value)
     {
       try
       {
-        return Ok(_repo.DeleteVault(value));
+        var vaultId = value.vaultId;
+        var keepId = value.keepId;
+        var userId = HttpContext.User.FindFirstValue("Id");
+        return Ok(_repo.DeleteVaultKeep(vaultId, keepId, userId));
       }
       catch (Exception e)
       {

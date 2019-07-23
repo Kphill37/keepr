@@ -1,31 +1,33 @@
 <template>
   <div class="home">
-
-    <h1>Welcome Home {{user.username}}</h1>
-    <button class="button btn-danger" v-if="user.id" @click="logout">logout</button>
-    <router-link v-else :to="{name: 'login'}">Login</router-link>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Keepr</a>
+      <a class="navbar-brand" href="#">
+        <h2>Keepr</h2>
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" v-if="user.id">MyVaults</a>
-            <a class="nav-link" href="#" v-else>MyVaults</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      <div class="collapse navbar-collapse w-100 order-3 dual-collapse2" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active ">
+            <h6 class="mb-0 mt-1">Welcome, {{user.username}}</h6>
+            <h6 class="mb-0">My Vaults</h6>
+            <h6 class="mb-0 mr-2" v-if="user.id" @click="logout">Logout</h6>
+            <!-- <button class="button btn-danger mr-10" v-if="user.id" @click="logout">Logout</button> -->
+            <router-link v-else :to="{name: 'login'}">Login</router-link>
           </li>
         </ul>
       </div>
     </nav>
+    <div class="row">
+      <div class="col-12">
+        <button class="button btn-success float-left ml-5 mt-5">Add new Keep</button>
+      </div>
+    </div>
+
+
+
   </div>
 </template>
 
@@ -44,3 +46,13 @@
     }
   };
 </script>
+
+<style>
+  .navbar {
+    height: 10vh;
+  }
+
+  .btn-danger {
+    float: right;
+  }
+</style>
