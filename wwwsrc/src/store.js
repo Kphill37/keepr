@@ -16,7 +16,8 @@ let api = Axios.create({
 
 export default new Vuex.Store({
   state: {
-    user: {}
+    user: {},
+    publicKeeps: {}
   },
   mutations: {
     setUser(state, user) {
@@ -25,7 +26,13 @@ export default new Vuex.Store({
     resetState(state) {
       //clear the entire state object of user data
       state.user = {}
-    }
+    },
+    setPublicKeeps(state, data) {
+      state.publicKeeps = data
+    },
+    // setNewKeep(state, data) {
+    //   state.
+    // }
   },
   actions: {
     async register({ commit, dispatch }, creds) {
@@ -54,6 +61,27 @@ export default new Vuex.Store({
         router.push({ name: "login" })
       } catch (e) {
         console.warn(e.message)
+      }
+      //#endregion
+
+      //#region -- site functionality
+    },
+    async getPublicKeeps({ commit, dispatch }) {
+      try {
+        let res = await api.get('keeps')
+        console.log(res)
+        commit('setPublicKeeps', res.data)
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async makeNewKeep({ commit, dispatch }, payload) {
+      try {
+        let res = await api.post('keeps', payload)
+        console.log(res)
+        // commit('setNewKeep', res.data)
+      } catch (error) {
+
       }
     }
   }

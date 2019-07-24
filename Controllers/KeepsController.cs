@@ -71,7 +71,7 @@ namespace keepr.Controllers
     // POST api/keeps
     [Authorize]
     [HttpPost]
-    public ActionResult<Keep> Post([FromBody] Keep value)
+    public ActionResult<Keep> Post([FromForm] Keep value)
     {
       try
       {
