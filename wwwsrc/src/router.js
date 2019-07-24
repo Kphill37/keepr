@@ -6,6 +6,10 @@ import Home from './views/Home.vue'
 import Login from './views/Login.vue'
 // @ts-ignore
 import createKeep from './views/createKeep.vue'
+// @ts-ignore
+import myAccount from './views/myAccount.vue'
+// @ts-ignore
+import createVault from './views/createVault.vue'
 
 Vue.use(Router)
 
@@ -25,6 +29,16 @@ export default new Router({
       path: '/createKeep',
       name: 'createKeep',
       component: createKeep,
-    }
+    },
+    {
+      path: '/myAccount',
+      name: 'myAccount',
+      component: myAccount,
+    },
+    {
+      path: '/createVault',
+      name: 'createVault',
+      component: createVault,
+    },
   ]
 })

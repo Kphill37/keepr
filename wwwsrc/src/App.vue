@@ -15,7 +15,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active ">
             <h6 class="mb-0 mt-1">Welcome, {{user.username}}</h6>
-            <h6 class="mb-0">My Vaults</h6>
+            <h6 class="mb-0" @click="accountRedirect">My Account</h6>
             <h6 class="mb-0 mr-2" v-if="user.id" @click="logout">Logout</h6>
             <!-- <button class="button btn-danger mr-10" v-if="user.id" @click="logout">Logout</button> -->
             <router-link v-else :to="{name: 'login'}">Login</router-link>
@@ -43,6 +43,9 @@
       },
       keepRedirect() {
         this.$router.push("createKeep")
+      },
+      accountRedirect() {
+        this.$router.push("myAccount")
       }
     },
     components: {

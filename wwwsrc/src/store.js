@@ -79,6 +79,7 @@ export default new Vuex.Store({
       try {
         let res = await api.post('keeps', payload)
         console.log(res)
+        console.log("PAYLOAD CONFIRMATION: " + payload)
         // commit('setNewKeep', res.data)
       } catch (error) {
 
