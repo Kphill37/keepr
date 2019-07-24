@@ -43,7 +43,7 @@ export default new Router({
       component: createVault,
     },
     {
-      path: '/Keep',
+      path: '/Keep/:id',
       name: 'Keep',
       component: Keep,
     },

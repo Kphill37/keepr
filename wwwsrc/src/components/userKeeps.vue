@@ -4,8 +4,10 @@
     <h1>UserKeeps Component</h1>
     <ul>
 
-      <li v-for="userkeep in userKeeps">{{userkeep.name}} <button @click="deleteKeep(userkeep.id)"
-          class="button btn-danger">DELETE</button></li>
+      <li v-for="userkeep in userKeeps">
+        <router-link :to="{name: 'Keep', params: {id: userkeep.id}}">{{userkeep.name}}</router-link><button
+          @click="deleteKeep(userkeep.id)" class="button btn-danger">DELETE</button>
+      </li>
     </ul>
   </div>
 </template>
