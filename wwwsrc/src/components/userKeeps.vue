@@ -1,6 +1,10 @@
 <template>
   <div class="userKeeps">
-    <h1>This is the userKeeps component</h1>
+
+    <h1>UserKeeps Component</h1>
+    <ul>
+      <li v-for="userkeep in userKeeps" :value="Id">{{userkeeps.name}}</li>
+    </ul>
   </div>
 </template>
 
@@ -9,18 +13,24 @@
 
   export default {
     name: "userKeeps",
+    data() {
+      return {
+
+      }
+    },
+    mounted() {
+      this.$store.dispatch("getUserKeeps");
+    },
     computed: {
       user() {
-        return this.$store.state.user;
+        return this.$store.state.user
+      },
+      userKeeps() {
+        return this.$store.state.userKeeps
       }
     },
     methods: {
-      // logout() {
-      //   this.$store.dispatch("logout");
-      // },
-      // keepRedirect() {
-      //   this.$router.push("createKeep")
-      // }
+
     },
     components: {
 
@@ -29,6 +39,11 @@
 </script>
 
 <style>
+  .navbar {
+    height: 10vh;
+  }
 
-
+  .btn-danger {
+    float: right;
+  }
 </style>

@@ -17,6 +17,7 @@ let api = Axios.create({
 export default new Vuex.Store({
   state: {
     user: {},
+    userkeeps: [],
     publicKeeps: {}
   },
   mutations: {
@@ -30,6 +31,10 @@ export default new Vuex.Store({
     setPublicKeeps(state, data) {
       state.publicKeeps = data
     },
+    setUserKeeps(state, data) {
+      debugger
+      state.userkeeps = data
+    }
     // setNewKeep(state, data) {
     //   state.
     // }
@@ -81,6 +86,26 @@ export default new Vuex.Store({
         console.log(res)
         console.log("PAYLOAD CONFIRMATION: " + payload)
         // commit('setNewKeep', res.data)
+      } catch (error) {
+
+      }
+    },
+    async makeNewVault({ commit, dispatch }, payload) {
+      try {
+        let res = await api.post('vaults', payload)
+        console.log(res)
+        console.log("PAYLOAD CONFIRMATION: " + payload)
+        // commit('setNewKeep', res.data)
+      } catch (error) {
+
+      }
+    },
+    async getUserKeeps({ commit, dispatch }) {
+      try {
+        debugger
+        let res = await api.get('keeps/user')
+        console.log(res)
+        commit('setUserKeeps', res.data)
       } catch (error) {
 
       }

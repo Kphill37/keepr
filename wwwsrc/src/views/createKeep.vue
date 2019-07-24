@@ -20,15 +20,19 @@
           <input type="text" class="form-control ml-5" id="KeepImg" placeholder="Enter Keep Image: " v-model="keep.img"
             style="width:25vw;">
           <button @click="makeNewKeep(keep)" class="button btn-success">SUBMIT</button>
-
         </div>
       </div>
     </div>
+
+    <userKeeps />
+
+
 
   </div>
 </template>
 
 <script>
+  import userKeeps from '@/components/userKeeps.vue'
 
   export default {
     name: "createKeep",
@@ -38,6 +42,7 @@
           name: "",
           description: "",
           img: "",
+          isPrivate: false,
         }
       }
     },
@@ -58,6 +63,7 @@
     },
     components: {
       // publicKeeps
+      userKeeps,
     }
   };
 </script>
