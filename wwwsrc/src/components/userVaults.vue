@@ -1,6 +1,10 @@
 <template>
   <div class="userVaults">
     <h1>This is the userVaults component</h1>
+    <ul>
+      <li v-for="vault in vaults">new vault <button @click="deletevault(vault.id)"
+          class="button btn-danger">DELETE</button></li>
+    </ul>
   </div>
 </template>
 
@@ -12,15 +16,18 @@
     computed: {
       user() {
         return this.$store.state.user;
+      },
+      vaults() {
+        return this.$store.state.uservaults
       }
     },
+    mounted() {
+      this.$store.dispatch("getUserVaults")
+    },
     methods: {
-      // logout() {
-      //   this.$store.dispatch("logout");
-      // },
-      // keepRedirect() {
-      //   this.$router.push("createKeep")
-      // }
+      deletevault(id) {
+        this.$store.dispatch("deleteVault", id)
+      }
     },
     components: {
 

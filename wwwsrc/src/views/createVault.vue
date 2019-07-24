@@ -16,10 +16,14 @@
         </div>
       </div>
     </div>
+
+    <userVaults />
+
   </div>
 </template>
 
 <script>
+  import userVaults from '@/components/userVaults.vue'
 
 
   export default {
@@ -44,7 +48,7 @@
       },
     },
     components: {
-
+      userVaults
     }
   };
 </script>

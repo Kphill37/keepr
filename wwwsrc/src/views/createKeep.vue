@@ -19,6 +19,8 @@
           <label class="ml-5 mr-3" style="float: left;" for="KeepImg">Image: </label>
           <input type="text" class="form-control ml-5" id="KeepImg" placeholder="Enter Keep Image: " v-model="keep.img"
             style="width:25vw;">
+          <input type="checkbox" v-model="keep.isPrivate">
+          <p>Is Private?</p>
           <button @click="makeNewKeep(keep)" class="button btn-success">SUBMIT</button>
         </div>
       </div>
@@ -49,7 +51,7 @@
     computed: {
       user() {
         return this.$store.state.user;
-      }
+      },
     },
     methods: {
       makeNewKeep(keep) {

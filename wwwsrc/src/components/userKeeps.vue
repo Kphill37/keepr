@@ -3,7 +3,9 @@
 
     <h1>UserKeeps Component</h1>
     <ul>
-      <li v-for="userkeep in userKeeps" :value="Id">{{userkeeps.name}}</li>
+
+      <li v-for="userkeep in userKeeps">{{userkeep.name}} <button @click="deleteKeep(userkeep.id)"
+          class="button btn-danger">DELETE</button></li>
     </ul>
   </div>
 </template>
@@ -26,11 +28,13 @@
         return this.$store.state.user
       },
       userKeeps() {
-        return this.$store.state.userKeeps
+        return this.$store.state.userkeeps
       }
     },
     methods: {
-
+      deleteKeep(id) {
+        this.$store.dispatch("deleteKeep", id)
+      }
     },
     components: {
 
