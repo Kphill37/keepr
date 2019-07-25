@@ -55,24 +55,24 @@ namespace keepr.Controllers
     }
 
     // PUT api/keeps/5
-    [Authorize]
-    [HttpPut("{id}")]
-    public ActionResult<Keep> Put(int id, [FromBody] Keep value)
-    {
-      try
-      {
-        value.id = id;
-        return Ok(_repo.Update(value));
-      }
-      catch (Exception e)
-      {
-        return BadRequest(e);
-      }
-    }
+    // [Authorize]
+    // [HttpPut("{id}")]
+    // public ActionResult<Keep> Put(int id, [FromBody] Keep value)
+    // {
+    //   try
+    //   {
+    //     value.id = id;
+    //     return Ok(_repo.Update(value));
+    //   }
+    //   catch (Exception e)
+    //   {
+    //     return BadRequest(e);
+    //   }
+    // }
 
     // DELETE api/keeps/5
     [Authorize]
-    [HttpPut]
+    [HttpPut("{id}")]
     public ActionResult<String> DeleteVaultKeep([FromBody] VaultKeep value)
     {
       try

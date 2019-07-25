@@ -6,6 +6,7 @@
       <div class="card-body">
         <h5 class="card-title">{{keep.name}}</h5>
         <p class="card-text">{{keep.description}}</p>
+        <img :src="keep.img" alt="">
         <p>ADD TO VAULT</p>
         <select v-model="selected" @change="addVaultKeep(keep)">
           <option disabled value>Add To Vault</option>

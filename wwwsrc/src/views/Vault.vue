@@ -3,7 +3,7 @@
     <h1>VaultView: </h1>{{vault.views}}
     <ul>
       <li v-for="vaultkeep in vaultkeeps">
-        {{vaultkeep}}
+        {{vaultkeep}} <button @click="removeVaultKeep(vaultkeep)" class="button btn-danger">DELETE VAULT</button>
       </li>
     </ul>
   </div>
@@ -37,7 +37,12 @@
     },
 
     methods: {
-
+      removeVaultKeep(keep) {
+        debugger
+        let vaultid = this.$route.params.id
+        let keepid = keep.id
+        this.$store.dispatch("deleteVaultKeep", { vaultid, keepid })
+      }
     },
     components: {
 
