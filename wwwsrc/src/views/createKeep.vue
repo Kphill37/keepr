@@ -55,8 +55,6 @@
     },
     methods: {
       makeNewKeep(keep) {
-        debugger
-        console.log(keep)
         this.$store.dispatch("makeNewKeep", keep);
       },
       // keepRedirect() {
@@ -64,7 +62,6 @@
       // }
     },
     components: {
-      // publicKeeps
       userKeeps,
     }
   };

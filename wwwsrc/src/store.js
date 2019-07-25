@@ -48,7 +48,6 @@ export default new Vuex.Store({
       state.vault = data
     },
     setVaultKeeps(state, data) {
-      debugger
       state.vaultkeeps = data
     }
     // setNewKeep(state, data) {
@@ -90,7 +89,6 @@ export default new Vuex.Store({
     async getPublicKeeps({ commit, dispatch }) {
       try {
         let res = await api.get('keeps')
-        console.log(res)
         commit('setPublicKeeps', res.data)
       } catch (error) {
         console.log(error)
@@ -99,56 +97,46 @@ export default new Vuex.Store({
     async makeNewKeep({ commit, dispatch }, payload) {
       try {
         let res = await api.post('keeps', payload)
-        console.log(res)
-        console.log("PAYLOAD CONFIRMATION: " + payload)
         dispatch('getUserKeeps')
       } catch (error) {
-
+        console.log(error)
       }
     },
     async deleteKeep({ commit, dispatch }, payload) {
       try {
-        debugger
         let res = await api.delete('keeps/' + payload, payload)
-        console.log(res)
-        console.log("PAYLOAD CONFIRMATION: " + payload)
         dispatch('getUserKeeps')
       } catch (error) {
-
+        console.log(error)
       }
     },
     async makeNewVault({ commit, dispatch }, payload) {
       try {
         let res = await api.post('vaults', payload)
-        console.log(res)
-        console.log("PAYLOAD CONFIRMATION: " + payload)
         // commit('setNewKeep', res.data)
       } catch (error) {
-
+        console.log(error)
       }
     },
     async getUserKeeps({ commit, dispatch }) {
       try {
         let res = await api.get('keeps/user')
-        console.log(res)
         commit('setUserKeeps', res.data)
       } catch (error) {
-
+        console.log(error)
       }
     },
     async deleteVault({ commit, dispatch }, payload) {
       try {
         let res = await api.delete('vaults/' + payload, payload)
-        console.log(res)
         dispatch('getUserVaults')
       } catch (error) {
-
+        console.log(error)
       }
     },
     async getUserVaults({ commit, dispatch }) {
       try {
         let res = await api.get('vaults')
-        console.log(res)
         commit('setUserVaults', res.data)
       } catch (error) {
 
@@ -159,7 +147,6 @@ export default new Vuex.Store({
         let res = await api.get('keeps/' + payload, payload)
         dispatch("iterateKeepViews", res.data)
         commit('setSingleKeep', res.data)
-        console.log(res)
       } catch (error) {
 
       }
@@ -174,7 +161,6 @@ export default new Vuex.Store({
     async getVaultById({ commit, dispatch }, payload) {
       try {
         let res = await api.get('vaults/' + payload, payload)
-        console.log(res)
         commit('setSingleVault', res.data)
       } catch (error) {
 
@@ -182,9 +168,7 @@ export default new Vuex.Store({
     },
     async getVaultKeeps({ commit, dispatch }, payload) {
       try {
-        debugger
         let res = await api.get('vaultkeeps/' + payload, payload)
-        console.log("VAULT KEEPS: " + res.data)
         commit('setVaultKeeps', res.data)
       } catch (error) {
 
@@ -192,9 +176,7 @@ export default new Vuex.Store({
     },
     async addVaultKeep({ commit, dispatch }, payload) {
       try {
-        debugger
         let res = await api.post('vaultkeeps/', payload)
-        console.log("Successful")
       } catch (error) {
 
       }
@@ -202,7 +184,6 @@ export default new Vuex.Store({
     async deleteVaultKeep({ commit, dispatch }, payload) {
       try {
         let res = await api.put('vaultkeeps/' + payload.vaultid, payload)
-        console.log("successfully deleted vault")
         dispatch("getVaultKeeps", payload.vaultid)
       } catch (error) {
 

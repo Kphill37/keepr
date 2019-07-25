@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
       <a class="navbar-brand" href="#">
         <router-link style="color: black;" :to="{name: 'home'}">
           <h2>Keepr</h2>
@@ -75,5 +75,13 @@
 
   #nav a.router-link-exact-active {
     color: #42b983;
+  }
+
+  .navbar {
+    background-color: rgb(61, 212, 250);
+    border: 1px groove black;
+    margin: auto auto;
+    width: 85vw;
+    margin-top: 2vh;
   }
 </style>

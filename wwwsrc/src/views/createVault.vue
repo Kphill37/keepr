@@ -43,7 +43,6 @@
     },
     methods: {
       makeNewVault(vault) {
-        console.log(vault)
         this.$store.dispatch("makeNewVault", vault);
       },
     },

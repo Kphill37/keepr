@@ -9,11 +9,8 @@
           <button class="button btn-success float-left ml-5 mt-1" @click="vaultRedirect">Vault Dashboard</button>
         </div>
       </div>
-
-      <publicKeeps />
     </div>
-
-
+    <publicKeeps />
   </div>
 </template>
 
@@ -45,11 +42,9 @@
 </script>
 
 <style>
-  .navbar {
-    height: 10vh;
-  }
-
   .btn-danger {
     float: right;
   }
+
+  body {}
 </style>

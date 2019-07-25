@@ -23,7 +23,6 @@
       this.$store.dispatch("getVaultById", this.$route.params.id)
 
       if (this.vault) {
-        debugger
         this.$store.dispatch("getVaultKeeps", this.$route.params.id)
       }
     },
@@ -38,7 +37,6 @@
 
     methods: {
       removeVaultKeep(keep) {
-        debugger
         let vaultid = this.$route.params.id
         let keepid = keep.id
         this.$store.dispatch("deleteVaultKeep", { vaultid, keepid })
