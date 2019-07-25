@@ -3,7 +3,7 @@
     <h1>VaultView: </h1>{{vault.views}}
     <ul>
       <li v-for="vaultkeep in vaultkeeps">
-        new list
+        {{vaultkeep}}
       </li>
     </ul>
   </div>

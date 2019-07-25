@@ -45,7 +45,8 @@
       addVaultKeep(keep) {
         debugger
         let vaultid = this.selected
-        this.$store.dispatch("addVaultKeep", { keep, vaultid })
+        let keepid = keep.id
+        this.$store.dispatch("addVaultKeep", { keepid, vaultid })
       }
     },
     components: {

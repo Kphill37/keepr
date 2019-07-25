@@ -193,10 +193,8 @@ export default new Vuex.Store({
     async addVaultKeep({ commit, dispatch }, payload) {
       try {
         debugger
-        let keep = payload.keep
-        let id = payload.vaultid
-        let res = await api.put('vaultkeeps/' + id, keep)
-        console.log("testing")
+        let res = await api.post('vaultkeeps/', payload)
+        console.log("Successful")
       } catch (error) {
 
       }
