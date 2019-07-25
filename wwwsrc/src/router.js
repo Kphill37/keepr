@@ -12,6 +12,8 @@ import myAccount from './views/myAccount.vue'
 import createVault from './views/createVault.vue'
 // @ts-ignore
 import Keep from './views/Keep.vue'
+// @ts-ignore
+import Vault from './views/Vault.vue'
 
 Vue.use(Router)
 
@@ -46,6 +48,11 @@ export default new Router({
       path: '/Keep/:id',
       name: 'Keep',
       component: Keep,
+    },
+    {
+      path: '/Vault/:id',
+      name: 'Vault',
+      component: Vault,
     },
   ]
 })

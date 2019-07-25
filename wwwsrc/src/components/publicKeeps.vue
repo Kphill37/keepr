@@ -6,6 +6,11 @@
       <div class="card-body">
         <h5 class="card-title">{{keep.name}}</h5>
         <p class="card-text">{{keep.description}}</p>
+        <p>ADD TO VAULT</p>
+        <select v-model="selected" @change="addVaultKeep(keep, vault)">
+          <option disabled value>Add To Vault</option>
+          <option v-for="vault in vaults" :key="vault.id" :value="vault.id">{{vault.name}}</option>
+        </select>
       </div>
     </div>
 
@@ -20,20 +25,28 @@
     props: [],
     data() {
       return {
-
+        selected: ""
       }
     },
     mounted() {
       this.$store.dispatch("getPublicKeeps")
+      this.$store.dispatch("getUserVaults")
     },
     computed: {
       keeps() {
         return this.$store.state.publicKeeps
+      },
+      vaults() {
+        return this.$store.state.uservaults
       }
     },
 
     methods: {
-
+      addVaultKeep(keep, vault) {
+        debugger
+        vaultid = this.vault.id
+        this.$store.dispatch("addVaultKeep", keep, vaultid)
+      }
     },
     components: {
 

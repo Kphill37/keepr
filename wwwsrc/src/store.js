@@ -20,7 +20,9 @@ export default new Vuex.Store({
     userkeeps: [],
     uservaults: [],
     publicKeeps: {},
-    keep: {}
+    keep: {},
+    vault: {},
+    vaultkeeps: [],
   },
   mutations: {
     setUser(state, user) {
@@ -41,6 +43,12 @@ export default new Vuex.Store({
     },
     setSingleKeep(state, data) {
       state.keep = data
+    },
+    setSingleVault(state, data) {
+      state.vault = data
+    },
+    setVaultKeeps(state, data) {
+      state.vaultkeeps = data
     }
     // setNewKeep(state, data) {
     //   state.
@@ -158,6 +166,24 @@ export default new Vuex.Store({
     async iterateKeepViews({ commit, dispatch }, payload) {
       try {
         let res = await api.put('keeps/')
+      } catch (error) {
+
+      }
+    },
+    async getVaultById({ commit, dispatch }, payload) {
+      try {
+        let res = await api.get('vaults/' + payload, payload)
+        console.log(res)
+        commit('setSingleVault', res.data)
+      } catch (error) {
+
+      }
+    },
+    async getVaultKeeps({ commit, dispatch }, payload) {
+      try {
+        let res = await api.get('vaultkeeps/' + payload, payload)
+        console.log(res)
+        commit('setVaultKeeps', res.data)
       } catch (error) {
 
       }
