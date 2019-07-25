@@ -19,7 +19,8 @@ export default new Vuex.Store({
     user: {},
     userkeeps: [],
     uservaults: [],
-    publicKeeps: {}
+    publicKeeps: {},
+    keep: {}
   },
   mutations: {
     setUser(state, user) {
@@ -37,6 +38,9 @@ export default new Vuex.Store({
     },
     setUserVaults(state, data) {
       state.uservaults = data
+    },
+    setSingleKeep(state, data) {
+      state.keep = data
     }
     // setNewKeep(state, data) {
     //   state.
@@ -141,5 +145,22 @@ export default new Vuex.Store({
 
       }
     },
+    async getKeepById({ commit, dispatch }, payload) {
+      try {
+        let res = await api.get('keeps/' + payload, payload)
+        dispatch("iterateKeepViews", res.data)
+        commit('setSingleKeep', res.data)
+        console.log(res)
+      } catch (error) {
+
+      }
+    },
+    async iterateKeepViews({ commit, dispatch }, payload) {
+      try {
+        let res = await api.put('keeps/')
+      } catch (error) {
+
+      }
+    }
   }
 })

@@ -1,6 +1,6 @@
 <template>
   <div class="KeepView">
-
+    <h1>Total Keeps: </h1>{{keep.views}}
   </div>
 </template>
 
@@ -16,10 +16,12 @@
       }
     },
     mounted() {
-
+      this.$store.dispatch("getKeepById", this.$route.params.id)
     },
     computed: {
-
+      keep() {
+        return this.$store.state.keep
+      }
     },
 
     methods: {
