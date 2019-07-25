@@ -44,7 +44,7 @@
     methods: {
       addVaultKeep(keep, vault) {
         debugger
-        vaultid = this.vault.id
+        vaultid = this.selected
         this.$store.dispatch("addVaultKeep", keep, vaultid)
       }
     },
