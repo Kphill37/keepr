@@ -48,6 +48,7 @@ export default new Vuex.Store({
       state.vault = data
     },
     setVaultKeeps(state, data) {
+      debugger
       state.vaultkeeps = data
     }
     // setNewKeep(state, data) {
@@ -181,9 +182,21 @@ export default new Vuex.Store({
     },
     async getVaultKeeps({ commit, dispatch }, payload) {
       try {
+        debugger
         let res = await api.get('vaultkeeps/' + payload, payload)
-        console.log(res)
+        console.log("VAULT KEEPS: " + res.data)
         commit('setVaultKeeps', res.data)
+      } catch (error) {
+
+      }
+    },
+    async addVaultKeep({ commit, dispatch }, payload) {
+      try {
+        debugger
+        let keep = payload.keep
+        let id = payload.vaultid
+        let res = await api.put('vaultkeeps/' + id, keep)
+        console.log("testing")
       } catch (error) {
 
       }

@@ -1,10 +1,14 @@
 <template>
   <div class="VaultView">
     <h1>VaultView: </h1>{{vault.views}}
+    <ul>
+      <li v-for="vaultkeep in vaultkeeps">
+        new list
+      </li>
+    </ul>
   </div>
 </template>
 
-vaultkeeps/:vaultId
 <script>
 
   export default {
@@ -26,6 +30,9 @@ vaultkeeps/:vaultId
     computed: {
       vault() {
         return this.$store.state.vault
+      },
+      vaultkeeps() {
+        return this.$store.state.vaultkeeps
       }
     },
 

@@ -7,7 +7,7 @@
         <h5 class="card-title">{{keep.name}}</h5>
         <p class="card-text">{{keep.description}}</p>
         <p>ADD TO VAULT</p>
-        <select v-model="selected" @change="addVaultKeep(keep, vault)">
+        <select v-model="selected" @change="addVaultKeep(keep)">
           <option disabled value>Add To Vault</option>
           <option v-for="vault in vaults" :key="vault.id" :value="vault.id">{{vault.name}}</option>
         </select>
@@ -42,10 +42,10 @@
     },
 
     methods: {
-      addVaultKeep(keep, vault) {
+      addVaultKeep(keep) {
         debugger
-        vaultid = this.selected
-        this.$store.dispatch("addVaultKeep", keep, vaultid)
+        let vaultid = this.selected
+        this.$store.dispatch("addVaultKeep", { keep, vaultid })
       }
     },
     components: {
