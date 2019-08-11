@@ -6,19 +6,33 @@
         <div class="card-body" style="min-height: 18rem;">
           <h5 class="card-title">{{keep.name}}</h5>
           <p class="card-text">{{keep.description}}</p>
-          <img :src="keep.img" alt=""> <br>
-          <select v-model="selected" @change="addVaultKeep(keep)">
-            <option disabled value>Add To Vault</option>
-            <option v-for="vault in vaults" :key="vault.id" :value="vault.id">{{vault.name}}</option>
-          </select>
+          <img class="max-height: 18rem;" :src="getKeepImg(keep)" alt=""> <br>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 mt-5">
+              <select class="mb-5" v-model="selected" @change="addVaultKeep(keep)">
+                <option disabled value>Add To Vault</option>
+                <option v-for="vault in vaults" :key="vault.id" :value="vault.id">{{vault.name}}</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+        <div class="row keepControls">
+          <div class="col-lg-12 col-md-12">
+            <i class="fas fa-eye mr-6" @click="viewKeep">View</i> <i class="fas fa-share mr-6">Share</i> <i
+              class="fas fa-heart mr-3">Keep</i>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
 
 <script>
+
+  import defaultIMG from '@/assets/200x200.png'
 
   export default {
     name: "publicKeeps",
@@ -47,6 +61,15 @@
         let keepid = keep.id
         this.$store.dispatch("addVaultKeep", { keepid, vaultid })
         this.selected = ''
+      },
+      getKeepImg(keep) {
+        if (!keep.img) {
+          return defaultIMG
+        }
+        return keep.img
+      },
+      viewKeep() {
+        console.log("Keep viewed!")
       }
     },
     components: {
@@ -61,5 +84,15 @@
 <style>
   .card {
     border: 1px groove black;
+  }
+
+  .card-title {
+    background-color: rgb(102, 183, 250);
+    height: 7vh;
+  }
+
+  .fas {
+    margin-right: 3vw;
+    margin-bottom: 2vh;
   }
 </style>
