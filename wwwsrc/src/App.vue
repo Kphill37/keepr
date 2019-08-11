@@ -17,7 +17,6 @@
             <h6 class="mb-0 mt-1">Welcome, {{user.username}}</h6>
             <h6 class="mb-0" @click="accountRedirect">My Account</h6>
             <h6 class="mb-0 mr-2" v-if="user.id" @click="logout">Logout</h6>
-            <!-- <button class="button btn-danger mr-10" v-if="user.id" @click="logout">Logout</button> -->
             <router-link v-else :to="{name: 'login'}">Login</router-link>
           </li>
         </ul>
@@ -57,7 +56,7 @@
 
 <style>
   #app {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-family: 'Lexend Deca', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
@@ -79,7 +78,8 @@
 
   .navbar {
     background-color: rgb(61, 212, 250);
-    border: 1px groove black;
+    border: 2px groove black;
+    border-radius: 25px;
     margin: auto auto;
     width: 85vw;
     margin-top: 2vh;

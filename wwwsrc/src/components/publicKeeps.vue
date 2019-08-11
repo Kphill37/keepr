@@ -1,7 +1,7 @@
 <template>
-  <div class="publicKeeps container w90">
+  <div class="publicKeeps mt-2 container-fluid w90">
     <div class="row">
-      <div class="card col-4 mt-2 ml-2" v-if="!keep.isPrivate" v-for="keep in keeps">
+      <div class="card col-4 mb-5 mt-2 ml-2" v-if="!keep.isPrivate" v-for="keep in keeps">
         <img class="card-img-top">
         <div class="card-body" style="min-height: 18rem;">
           <h5 class="card-title">{{keep.name}}</h5>
@@ -59,6 +59,15 @@
 
 
 <style>
+  .publicKeeps {
+    border: 1px solid rgba(128, 128, 128, 0.397);
+    min-width: 99vw;
+    height: auto;
+    margin-bottom: 7vh;
+  }
 
-
+  .card {
+    border: 1px groove black;
+    max-width: 100%;
+  }
 </style>
