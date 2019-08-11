@@ -1,12 +1,12 @@
 <template>
-  <div class="publicKeeps mt-2 container-fluid w90">
+  <div class="publicKeeps mt-2 container-fluid w50">
     <div class="row">
-      <div class="card col-4 mb-5 mt-2 ml-2" v-if="!keep.isPrivate" v-for="keep in keeps">
+      <div class="card col-lg-4 col-md-12 mb-5 mt-2 ml-2" v-if="!keep.isPrivate" v-for="keep in keeps">
         <img class="card-img-top">
         <div class="card-body" style="min-height: 18rem;">
           <h5 class="card-title">{{keep.name}}</h5>
           <p class="card-text">{{keep.description}}</p>
-          <img :src="keep.img" alt="">
+          <img :src="keep.img" alt=""> <br>
           <select v-model="selected" @change="addVaultKeep(keep)">
             <option disabled value>Add To Vault</option>
             <option v-for="vault in vaults" :key="vault.id" :value="vault.id">{{vault.name}}</option>
@@ -59,15 +59,7 @@
 
 
 <style>
-  .publicKeeps {
-    border: 1px solid rgba(128, 128, 128, 0.397);
-    min-width: 99vw;
-    height: auto;
-    margin-bottom: 7vh;
-  }
-
   .card {
     border: 1px groove black;
-    max-width: 100%;
   }
 </style>
