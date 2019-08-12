@@ -1,10 +1,8 @@
 <template>
   <div class="userKeeps">
-
     <h1>My Keeps: </h1>
-
-    <div class="row ">
-      <div class="col-lg-12">
+    <div class="row">
+      <div class="col-lg-12 w-75">
         <ul class="list-group">
           <li v-for="userkeep in userKeeps" class="list-group-item">{{userkeep.name}}</li>
         </ul>
@@ -65,5 +63,9 @@
 
   .btn-danger {
     float: right;
+  }
+
+  .list-group-item {
+    margin-left: 50%;
   }
 </style>
