@@ -3,9 +3,11 @@
 
     <h1>My Keeps: </h1>
 
-    <div class="row w-70">
+    <div class="row ">
       <div class="col-lg-12">
-
+        <ul class="list-group">
+          <li v-for="userkeep in userKeeps" class="list-group-item">{{userkeep.name}}</li>
+        </ul>
       </div>
     </div>
 
