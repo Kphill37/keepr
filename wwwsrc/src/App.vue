@@ -14,8 +14,10 @@
       <div class="collapse navbar-collapse w-100 order-3 dual-collapse2" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active ">
-            <h6 class="mb-0 mt-1">Welcome, {{user.username}}</h6>
-            <h6 class="mb-0" @click="accountRedirect">My Account</h6>
+            <h6 v-if="user.id" class="mb-0 mt-1">Welcome, {{user.username}}</h6>
+            <h6 v-else>Welcome, guest</h6>
+            <h6 v-if="user.id" class="mb-0" @click="accountRedirect">My Account</h6>
+            <p class="mt-0" v-else>Please login for extended features!</p>
             <h6 class="mb-0 mr-2" v-if="user.id" @click="logout">Logout</h6>
             <router-link v-else :to="{name: 'login'}">Login</router-link>
           </li>
