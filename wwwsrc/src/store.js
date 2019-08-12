@@ -159,6 +159,16 @@ export default new Vuex.Store({
 
       }
     },
+    async iterateKeepCount({ commit, dispatch }, payload) {
+      console.log("KEEP COUNT" + payload.keeps)
+      payload.keeps++
+      console.log("KEEP COUNT" + payload.keeps)
+      try {
+        let res = await api.put('keeps/' + payload.id, payload)
+      } catch (error) {
+
+      }
+    },
     async getVaultById({ commit, dispatch }, payload) {
       try {
         let res = await api.get('vaults/' + payload, payload)

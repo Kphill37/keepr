@@ -14,7 +14,7 @@
             style="width:25vw;">
           <input type="text" class="form-control ml-5" id="KeepDescription" placeholder="Keep Description"
             v-model="keep.description" style="width:25vw;">
-          <input type="text" class="form-control ml-5" id="KeepImg" placeholder="Keep Image" v-model="keep.img"
+          <input type="text" class="form-control ml-5" id="KeepImg (url)" placeholder="Keep Image" v-model="keep.img"
             style="width:25vw;">
           <div class="ml-5 text-muted"
             style="float: left; border: 1px solid rgba(131, 130, 130, 0.459); width: 25vw; text-align:left; padding-left: 1vw;">
