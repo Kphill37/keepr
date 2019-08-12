@@ -3,25 +3,25 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <h1 class="mt-5 ml-5 float-left">Keep creation page!</h1>
+          <h1 class="mt-5 ml-5 float-left">Create New Keep</h1>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12">
+    <div class="form-row">
+      <div class="col-lg-12">
         <div class="form-group">
-          <label class="ml-5 mr-5" style="float: left;" for="KeepName">Name: </label>
-          <input type="text" class="form-control ml-5" id="KeepName" placeholder="Enter Keep Name: " v-model="keep.name"
+          <input type="text" class="form-control ml-5" id="KeepName" placeholder="Keep Name" v-model="keep.name"
             style="width:25vw;">
-          <label class="ml-5 mr-3" style="float: left;" for="KeepDescription">Description: </label>
-          <input type="text" class="form-control ml-5" id="KeepDescription" placeholder="Enter Keep Description: "
+          <input type="text" class="form-control ml-5" id="KeepDescription" placeholder="Keep Description"
             v-model="keep.description" style="width:25vw;">
-          <label class="ml-5 mr-3" style="float: left;" for="KeepImg">Image: </label>
-          <input type="text" class="form-control ml-5" id="KeepImg" placeholder="Enter Keep Image: " v-model="keep.img"
+          <input type="text" class="form-control ml-5" id="KeepImg" placeholder="Keep Image" v-model="keep.img"
             style="width:25vw;">
-          <input type="checkbox" v-model="keep.isPrivate">
-          <p>Is Private?</p>
-          <button @click="makeNewKeep(keep)" class="button btn-success">SUBMIT</button>
+          <div class="ml-5 text-muted"
+            style="float: left; border: 1px solid rgba(131, 130, 130, 0.459); width: 25vw; text-align:left; padding-left: 1vw;">
+            Is
+            Private?
+            <input class="ml-2" type="checkbox" v-model="keep.isPrivate"></div>
+          <button @click="makeNewKeep(keep)" class="button btn-success float-left ml-2">SUBMIT</button>
         </div>
       </div>
     </div>
