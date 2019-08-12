@@ -8,7 +8,6 @@
               v-model="vault.name" style="width:25vw;">
             <input type="text" class="form-control ml-5" id="vaultDescription" placeholder="Enter Vault Description: "
               v-model="vault.description" style="width:25vw;">
-            <button @click="makeNewVault(vault)" class="button btn-success float-left">SUBMIT</button>
           </div>
         </div>
       </div>
