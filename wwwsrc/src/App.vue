@@ -15,11 +15,11 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active ">
             <h6 v-if="user.id" class="mb-0 mt-1">Welcome, {{user.username}}</h6>
-            <h6 v-else>Welcome, guest</h6>
+            <h6 class="mb-0" v-else>Welcome, guest</h6>
             <h6 v-if="user.id" class="mb-0" @click="accountRedirect">My Account</h6>
-            <p class="mt-0" v-else>Please login for extended features!</p>
+            <p class="mt-0 mb-0" v-else>Please login for extended features!</p>
             <h6 class="mb-0 mr-2" v-if="user.id" @click="logout">Logout</h6>
-            <router-link v-else :to="{name: 'login'}">Login</router-link>
+            <router-link class="mt-0" v-else :to="{name: 'login'}">Login</router-link>
           </li>
         </ul>
       </div>
