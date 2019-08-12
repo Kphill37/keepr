@@ -1,14 +1,13 @@
 <template>
   <div class="userVaults">
-    <h1>This is the userVaults component</h1>
-    <ul>
-      <li v-for="vault in vaults">
-        <router-link :to="{name: 'Vault', params: {id: vault.id}}">{{vault.name}}</router-link><button
-          @click="deletevault(vault.id)" class="button btn-danger">DELETE</button>
-      </li>
-      <!-- <router-link :to="{name: 'Keep', params: {id: userkeep.id}}">{{userkeep.name}}</router-link><button
-                    @click="deleteKeep(userkeep.id)" class="button btn-danger">DELETE</button> -->
-    </ul>
+    <h1>My Vaults: </h1>
+    <div class="row">
+      <div class="col-lg-12 w-75">
+        <ul class="list-group">
+          <li v-for="vault in vaults" class="list-group-item" @click="goToVault(vault)">{{vault.name}}</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -31,6 +30,9 @@
     methods: {
       deletevault(id) {
         this.$store.dispatch("deleteVault", id)
+      },
+      goToVault(vault) {
+        this.$router.push({ name: 'Vault', params: { id: vault.id } })
       }
     },
     components: {

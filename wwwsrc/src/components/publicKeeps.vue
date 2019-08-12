@@ -14,8 +14,9 @@
         </div>
         <div class="row keepControls">
           <div class="col-lg-12 col-md-12">
-            <i class="fas fa-eye mr-6" @click="viewKeep(keep)">View</i> <i class="fas fa-share mr-6">Share</i> <i
-              class="fas fa-heart mr-3" @click="vaulttoggle = !vaulttoggle">Keep</i>
+            <i class="fas fa-eye mr-6" @click="viewKeep(keep)">View</i> <i v-if="user.id"
+              class="fas fa-share mr-6">Share</i> <i v-if="user.id" class="fas fa-heart mr-3"
+              @click="vaulttoggle = !vaulttoggle">Keep</i>
           </div>
           <div v-if="vaulttoggle == true" class="row">
             <div class="col-lg-12 col-md-12 mt-5">
@@ -56,6 +57,9 @@
       },
       vaults() {
         return this.$store.state.uservaults
+      },
+      user() {
+        return this.$store.state.user;
       }
     },
 
