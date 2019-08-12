@@ -1,6 +1,6 @@
 <template>
   <div class="KeepView">
-    <h1>Total Keeps: </h1>{{keep.views}}
+    <h1>Total Keeps: {{keep.views}}</h1>
   </div>
 </template>
 

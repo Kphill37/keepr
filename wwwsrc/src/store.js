@@ -145,15 +145,16 @@ export default new Vuex.Store({
     async getKeepById({ commit, dispatch }, payload) {
       try {
         let res = await api.get('keeps/' + payload, payload)
-        dispatch("iterateKeepViews", res.data)
         commit('setSingleKeep', res.data)
       } catch (error) {
 
       }
     },
-    async iterateKeepViews({ commit, dispatch }, payload) {
+    async updateKeepCount({ commit, dispatch }, payload) {
+      payload.views++
+      console.log(payload)
       try {
-        let res = await api.put('keeps/')
+        let res = await api.put('keeps/' + payload.id, payload)
       } catch (error) {
 
       }

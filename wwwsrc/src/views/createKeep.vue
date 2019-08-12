@@ -57,9 +57,6 @@
       makeNewKeep(keep) {
         this.$store.dispatch("makeNewKeep", keep);
       },
-      // keepRedirect() {
-      //   this.$router.push("createKeep")
-      // }
     },
     components: {
       userKeeps,
@@ -68,11 +65,5 @@
 </script>
 
 <style>
-  /* .navbar {
-    height: 10vh;
-  }
 
-  .btn-danger {
-    float: right;
-  } */
 </style>

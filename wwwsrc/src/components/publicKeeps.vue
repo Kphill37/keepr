@@ -19,7 +19,7 @@
         </div>
         <div class="row keepControls">
           <div class="col-lg-12 col-md-12">
-            <i class="fas fa-eye mr-6" @click="viewKeep">View</i> <i class="fas fa-share mr-6">Share</i> <i
+            <i class="fas fa-eye mr-6" @click="viewKeep(keep)">View</i> <i class="fas fa-share mr-6">Share</i> <i
               class="fas fa-heart mr-3">Keep</i>
           </div>
         </div>
@@ -68,8 +68,9 @@
         }
         return keep.img
       },
-      viewKeep() {
-        console.log("Keep viewed!")
+      viewKeep(keep) {
+        this.$store.dispatch("updateKeepCount", keep)
+        this.$router.push({ name: 'Keep', params: { id: keep.id } })
       }
     },
     components: {
