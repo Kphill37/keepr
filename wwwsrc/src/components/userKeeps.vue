@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-lg-12 w-75">
         <ul class="list-group">
-          <li v-for="userkeep in userKeeps" class="list-group-item">{{userkeep.name}}</li>
+          <li v-for="userkeep in userKeeps" class="list-group-item" @click="goToKeep(userkeep)">{{userkeep.name}}</li>
         </ul>
       </div>
     </div>
@@ -48,6 +48,10 @@
     methods: {
       deleteKeep(id) {
         this.$store.dispatch("deleteKeep", id)
+      },
+      goToKeep(keep) {
+        this.$store.dispatch("updateKeepCount", keep)
+        this.$router.push({ name: 'Keep', params: { id: keep.id } })
       }
     },
     components: {
@@ -66,6 +70,6 @@
   }
 
   .list-group-item {
-    margin-left: 50%;
+    margin: 0 auto;
   }
 </style>
