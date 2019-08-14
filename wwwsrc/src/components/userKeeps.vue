@@ -1,11 +1,13 @@
 <template>
   <div class="userKeeps">
-    <h1>My Keeps: </h1>
+    <h1>My Keeps </h1>
+    <h6 class="text-muted">(Click on an Image to visit Keep)</h6>
     <div class="row">
       <div class="col-lg-12 w-75">
         <ul class="list-group align-items-left">
-          <li v-for="userkeep in userKeeps" class="list-group-item" @click="goToKeep(userkeep)">{{userkeep.name}}
-            <img id="userkeep" :src="userkeep.img" alt=""></li>
+          <li v-for="userkeep in userKeeps" class="list-group-item">{{userkeep.name}}
+            <img @click="goToKeep(userkeep)" id="userkeep" :src="userkeep.img" alt=""> <button
+              @click="deleteKeep(userkeep)" class="button btn-danger">Delete Keep</button></li>
         </ul>
       </div>
     </div>
@@ -73,13 +75,23 @@
   .list-group-item {
     width: 80vw;
     margin: 0 auto;
-    cursor: pointer;
     float: left;
+    cursor: default;
   }
 
   #userkeep {
     height: 75px;
     width: 75px;
     margin-left: 5vw;
+
+  }
+
+  .btn-danger {
+    font-size: 1rem;
+    margin-top: 4vh;
+  }
+
+  img {
+    cursor: pointer;
   }
 </style>
