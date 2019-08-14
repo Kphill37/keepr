@@ -3,7 +3,7 @@
     <h1>VaultView: </h1>{{vault.views}}
     <ul>
       <li v-for="vaultkeep in vaultkeeps">
-        {{vaultkeep}} <button @click="removeVaultKeep(vaultkeep)" class="button btn-danger">DELETE VAULT</button>
+        {{vaultkeep.name}} <button @click="removeVaultKeep(vaultkeep)" class="button btn-danger">DELETE KEEP</button>
       </li>
     </ul>
   </div>
@@ -40,6 +40,7 @@
         let vaultid = this.$route.params.id
         let keepid = keep.id
         this.$store.dispatch("deleteVaultKeep", { vaultid, keepid })
+        this.$store.dispatch("getVaultKeeps", this.$route.params.id)
       }
     },
     components: {

@@ -21,6 +21,7 @@
             <h6 class="mb-0 mr-2" v-if="user.id" @click="logout">Logout</h6>
             <router-link class="mt-0" v-else :to="{name: 'login'}">Login</router-link>
           </li>
+
         </ul>
       </div>
     </nav>
@@ -85,5 +86,9 @@
     margin: auto auto;
     width: 85vw;
     margin-top: 2vh;
+  }
+
+  .nav-item.active {
+    float: left;
   }
 </style>

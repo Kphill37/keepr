@@ -100,7 +100,7 @@
   }
 
   .card-title {
-    background-color: rgb(102, 183, 250);
+    background-color: rgb(61, 212, 250);
     height: 7vh;
   }
 
