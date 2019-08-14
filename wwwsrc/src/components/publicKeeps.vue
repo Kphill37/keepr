@@ -50,6 +50,7 @@
     mounted() {
       this.$store.dispatch("getPublicKeeps")
       this.$store.dispatch("getUserVaults")
+      this.$store.dispatch("clearSingleKeep")
     },
     computed: {
       keeps() {

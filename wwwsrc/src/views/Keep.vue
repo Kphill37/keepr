@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid KeepView">
+  <div class="KeepView container-fluid">
     <div class="row">
       <div class="col-lg-6 col-md-12">
         <div class="card">
@@ -64,36 +64,40 @@
 
 
 <style scoped>
-  .keepImg {
+  /* .keepImg {
     margin-top: 1vh;
-    margin-left: 2vh;
+    margin-left: 1vw;
     border: 5px groove black;
   }
 
   img {
-    margin-left: 2vw;
+    margin-left: 1vw;
+    margin-right: auto;
     max-height: 30rem;
     max-width: 19rem;
   }
 
   li {
     list-style-type: none;
-    width: 20vw;
+    width: 100%;
     margin-bottom: 11vh;
   }
 
+  ul {
+    width: -10vw;
+  }
+
   .card {
-    margin-top: 10vh;
-    margin-left: 7vw;
-    margin-bottom: 5vh;
     height: auto;
-    width: 25rem;
+    min-width: 20rem;
+    margin: 20px auto;
   }
 
   .keepStats {
     margin-left: 0vw;
     margin-top: 21vh;
-    font-size: 3rem
+    font-size: 3rem;
+
   }
 
   .card-text {
@@ -104,5 +108,44 @@
   .card-title {
     font-weight: bold;
     font-size: 2rem;
+  } */
+
+  .card {
+    height: auto;
+    width: 75%;
+    margin: 5vh auto;
+  }
+
+  img {
+    height: 31vh;
+    width: 60vw;
+    margin: 0 auto;
+  }
+
+  .card-title {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
+  .card-text {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
+  .keepStats {
+    margin-left: 0vw;
+    margin-top: 5vh;
+    font-size: 3rem;
+  }
+
+  ul {
+    width: -10vw;
+    margin-right: 6vw;
+  }
+
+  li {
+    list-style-type: none;
+    width: 100%;
+    margin-bottom: 11vh;
   }
 </style>

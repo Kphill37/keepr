@@ -169,6 +169,9 @@ export default new Vuex.Store({
 
       }
     },
+    async clearSingleKeep({ commit, dispatch }) {
+      commit('setSingleKeep', {})
+    },
     async getVaultById({ commit, dispatch }, payload) {
       try {
         let res = await api.get('vaults/' + payload, payload)
