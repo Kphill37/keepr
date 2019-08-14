@@ -2,7 +2,6 @@
   <div class="publicKeeps mt-2 ml-3 container-fluid w100">
     <div class="row">
       <div class="card col-lg-3 col-md-12 mb-5 mt-2 ml-2" v-if="!keep.isPrivate" v-for="keep in keeps">
-        <h1>{{keep.id}}</h1>
         <img class="card-img-top">
         <div class="card-body" style="min-height: 18rem;">
           <h5 class="card-title pt-1">{{keep.name}}<br>

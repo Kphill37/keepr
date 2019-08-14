@@ -3,8 +3,9 @@
     <h1>My Keeps: </h1>
     <div class="row">
       <div class="col-lg-12 w-75">
-        <ul class="list-group">
-          <li v-for="userkeep in userKeeps" class="list-group-item" @click="goToKeep(userkeep)">{{userkeep.name}}</li>
+        <ul class="list-group align-items-left">
+          <li v-for="userkeep in userKeeps" class="list-group-item" @click="goToKeep(userkeep)">{{userkeep.name}}
+            <img id="userkeep" :src="userkeep.img" alt=""></li>
         </ul>
       </div>
     </div>
@@ -60,7 +61,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   .navbar {
     height: 10vh;
   }
@@ -70,6 +71,15 @@
   }
 
   .list-group-item {
+    width: 80vw;
     margin: 0 auto;
+    cursor: pointer;
+    float: left;
+  }
+
+  #userkeep {
+    height: 75px;
+    width: 75px;
+    margin-left: 5vw;
   }
 </style>
