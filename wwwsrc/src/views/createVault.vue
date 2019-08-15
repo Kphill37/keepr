@@ -4,9 +4,9 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="form-group">
-            <input type="text" class="form-control ml-5" id="VaultName" placeholder="Enter Vault Name"
+            <input type="text" maxlength="20" class="form-control ml-5" id="VaultName" placeholder="Enter Vault Name"
               v-model="vault.name">
-            <input type="text" class="form-control ml-5" id="vaultDescription" placeholder="Enter Vault Description: "
+            <input type="text" maxlength="255" class="form-control ml-5" id="vaultDescription" placeholder="Enter Vault Description: "
               v-model="vault.description"> <button v-on:submit.prevent="onSubmit" @click="makeNewVault(vault)"
               class="button btn-success float-center">SUBMIT</button>
           </div>

@@ -10,10 +10,12 @@
     <div class="form-row">
       <div class="col-lg-12">
         <div class="form-group">
-          <input type="text" class="form-control ml-5" id="KeepName" placeholder="Name" v-model="keep.name">
-          <input type="text" class="form-control ml-5" id="KeepDescription" placeholder="Description"
+          <input type="text" maxlength="20" class="form-control ml-5" id="KeepName" placeholder="Name"
+            v-model="keep.name">
+          <input type="text" maxlength="255" class="form-control ml-5" id="KeepDescription" placeholder="Description"
             v-model="keep.description">
-          <input type="text" class="form-control ml-5" id="KeepImg" placeholder="Image(url)" v-model="keep.img">
+          <input type="text" maxlength="255" class="form-control ml-5" id="KeepImg" placeholder="Image(url)"
+            v-model="keep.img">
           <div class="ml-5 text-muted"
             style="float: left; border: 1px solid rgba(131, 130, 130, 0.459); width: 50vw; text-align:left; padding-left: 1vw;">
             Is

@@ -3,10 +3,12 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <button class="button btn-success float-left ml-5 mt-5" @click="keepRedirect">Keep Dashboard</button>
+          <button v-if="user.id" class="button btn-success float-left ml-5 mt-5" @click="keepRedirect">Keep
+            Dashboard</button>
         </div>
         <div class="col-12">
-          <button class="button btn-success float-left ml-5 mt-1" @click="vaultRedirect">Vault Dashboard</button>
+          <button v-if="user.id" class="button btn-success float-left ml-5 mt-1" @click="vaultRedirect">Vault
+            Dashboard</button>
         </div>
       </div>
     </div>

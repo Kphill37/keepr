@@ -12,7 +12,7 @@
           </h5>
           <p class="card-text">{{keep.description}}</p>
           <img :src="getKeepImg(keep)" alt="Keep Image">
-          <i class="fas fa-eye mr-6" @click="viewKeep(keep)">View</i>
+          <i class="fas fa-eye mr-5 mt-5" @click="viewKeep(keep)">View</i>
           <button @click="removeVaultKeep(keep)" class="button btn-danger mt-5">Delete From Vault</button>
         </div>
       </div>
